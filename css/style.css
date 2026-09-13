@@ -106,7 +106,6 @@ img { display: block; max-width: 100%; }
 
 .btn-dark { background: var(--brand-dark); color: var(--bg); }
 .btn-teal { background: var(--teal); color: #fff; }
-.btn-outline { border-color: var(--brand-dark); color: var(--brand-dark); background: transparent; }
 .btn-telegram { background: #1B7DAC; color: #fff; }
 .btn-whatsapp { background: #075E54; color: #fff; }
 .btn-max { background: #006EE6; color: #fff; }
@@ -597,5 +596,4 @@ h2.section-title {
   font-weight: 500;
 }
 
-.sticky-bar .btn-outline { border: 1px solid var(--brand-dark); color: var(--brand-dark); }
 .sticky-bar .btn-teal { font-weight: 600; }
