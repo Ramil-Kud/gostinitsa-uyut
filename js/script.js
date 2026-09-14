@@ -1,3 +1,27 @@
+const METRIKA_ID = 112568797;
+
+function sendGoal(name) {
+  if (typeof window.ym === "function") {
+    window.ym(METRIKA_ID, "reachGoal", name);
+  }
+}
+
+function goalForLink(href) {
+  if (href.startsWith("tel:+79876022248")) return "call_brigade";
+  if (href.startsWith("tel:")) return "call_main";
+  if (href.includes("wa.me")) return "whatsapp_click";
+  if (href.includes("t.me")) return "telegram_click";
+  if (href.includes("max.ru")) return "max_click";
+  return null;
+}
+
+document.addEventListener("click", (event) => {
+  const link = event.target.closest("a[href]");
+  if (!link) return;
+  const goal = goalForLink(link.getAttribute("href"));
+  if (goal) sendGoal(goal);
+});
+
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("booking-form");
   if (!form) return;
@@ -63,6 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
         form.reset();
         checkinInput.min = today;
         checkoutInput.min = addDays(today, 1);
+        sendGoal("booking_success");
       } else {
         errorMessage.hidden = false;
       }
