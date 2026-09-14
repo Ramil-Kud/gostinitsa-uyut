@@ -115,7 +115,7 @@ img { display: block; max-width: 100%; }
 .hero {
   padding: 56px 24px 72px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
   gap: 56px;
   align-items: center;
 }
@@ -181,7 +181,11 @@ img { display: block; max-width: 100%; }
   margin-bottom: 26px;
 }
 
-.cta-row .btn { text-align: center; padding-left: 16px; padding-right: 16px; }
+.cta-row .btn { min-width: 0; text-align: center; padding-left: 12px; padding-right: 12px; }
+
+@media (max-width: 360px) {
+  .cta-row .btn { font-size: 12px; letter-spacing: 0.04em; padding-left: 8px; padding-right: 8px; }
+}
 
 .amenity-row {
   display: flex;
@@ -230,6 +234,8 @@ h2.section-title {
   max-width: 64ch;
 }
 
+.section-lead a[href^="tel:"] { white-space: nowrap; }
+
 /* Features grid */
 
 .features-grid {
@@ -264,7 +270,7 @@ h2.section-title {
 .brigades .wrap {
   padding: 80px 24px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
   gap: 56px;
   align-items: center;
 }
@@ -303,13 +309,13 @@ h2.section-title {
 .brigades-list div:last-child { border-bottom: 1px solid rgba(34, 49, 37, 0.18); }
 
 .brigades-phone { margin: 14px 0 0; font-size: 14px; color: var(--brigades-muted); }
-.brigades-phone a { color: var(--brigades-text); font-weight: 500; }
+.brigades-phone a { color: var(--brigades-text); font-weight: 500; white-space: nowrap; }
 
 /* Rooms */
 
 .rooms-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
   gap: 28px;
 }
 
@@ -395,7 +401,7 @@ h2.section-title {
 .booking-grid {
   padding: 80px 24px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
   gap: 56px;
 }
 
@@ -475,7 +481,7 @@ h2.section-title {
 .location-grid {
   padding: 80px 24px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
   gap: 48px;
   align-items: center;
 }
@@ -527,7 +533,11 @@ h2.section-title {
 
 .footer-cta { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
 
-.footer-cta .btn { text-align: center; padding: 14px 16px; }
+.footer-cta .btn { min-width: 0; text-align: center; padding: 14px 12px; }
+
+@media (max-width: 360px) {
+  .footer-cta .btn { font-size: 12px; letter-spacing: 0.04em; padding-left: 8px; padding-right: 8px; }
+}
 .footer-cta .btn-dark { background: var(--teal-light); color: var(--footer-bg); font-weight: 600; }
 
 .footer-col {
